@@ -1,0 +1,22 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.rasa/
+.venv/
+env/
+venv/
+venv/ # Ignore your virtual environment folder itself
+models/
+dialogue_management/
+.pytest_cache/
+*.sqlite
+data/__pycache__/
+actions/__pycache__/
+*.log
+*.db
+output/
+Lib/
+Include/
+Scripts/
+share/
+pyvenv.cfg 

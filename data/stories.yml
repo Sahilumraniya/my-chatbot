@@ -1,0 +1,117 @@
+version: "3.1"
+
+stories:
+  - story: basic portfolio interaction
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: inquire_about_projects
+      - action: utter_projects
+      - action: utter_ask_what_else
+      - intent: thank_you
+      - action: utter_thank_you
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: ask about a specific project
+    steps:
+      - intent: ask_specific_project
+      - action: action_tell_project_details
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: inquire about projects and then specific project
+    steps:
+      - intent: inquire_about_projects
+      - action: utter_projects
+      - intent: ask_specific_project
+      - action: action_tell_project_details
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: direct skill inquiry
+    steps:
+      - intent: inquire_about_skills
+      - action: utter_skills
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: ask about a specific skill
+    steps:
+      - intent: ask_specific_skill
+      - action: action_tell_skill_details
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: combine greet and introduce self
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: introduce_self
+      - action: utter_greet # Acknowledge the user's intro, then continue
+      - action: utter_ask_what_else # Offer further help
+
+  - story: tell more about me flow (refined)
+    steps:
+      - intent: tell_more_about_me
+      - action: utter_about_sahil # Give concise overview first
+      - action: utter_ask_what_else # Then ask if they want more info
+      # The 'or' block has been removed here.
+      # Rasa will now listen, and the user's next intent will match a different story
+      # (e.g., direct skill inquiry, inquire about experience and then by company, etc.).
+      # This is the standard and correct way to handle such divergences based on user input.
+
+  - story: inquire about achievements
+    steps:
+      - intent: inquire_about_achievements
+      - action: utter_achievements
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: ask about a specific achievement
+    steps:
+      - intent: ask_specific_achievement
+      - action: action_tell_achievement_details
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: inquire about experience and then by company
+    steps:
+      - intent: inquire_about_experience
+      - action: utter_experience
+      - intent: ask_experience_by_company
+      - action: action_tell_experience_by_company
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: ask experience by company directly
+    steps:
+      - intent: ask_experience_by_company
+      - action: action_tell_experience_by_company
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: inquire about all project links
+    steps:
+      - intent: inquire_all_project_links
+      - action: action_list_all_project_links
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - story: direct contact inquiry
+    steps:
+      - intent: inquire_about_contact
+      - action: utter_contact
+      - action: utter_ask_what_else
+      - intent: goodbye
+      - action: utter_goodbye

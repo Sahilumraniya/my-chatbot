@@ -1,0 +1,51 @@
+version: "3.1"
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Greet the user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: Thank the user
+    steps:
+      - intent: thank_you
+      - action: utter_thank_you
+      - action: utter_ask_what_else
+
+  - rule: Respond to inquiry about skills
+    steps:
+      - intent: inquire_about_skills
+      - action: utter_skills
+      - action: utter_ask_what_else
+
+  - rule: Respond to inquiry about contact
+    steps:
+      - intent: inquire_about_contact
+      - action: utter_contact
+      - action: utter_ask_what_else
+
+  - rule: Handle out of scope questions
+    steps:
+      - intent: out_of_scope
+      - action: utter_out_of_scope
+      - action: utter_ask_what_else
+
+  - rule: Respond to bot identity question
+    steps:
+      - intent: bot_identity
+      - action: utter_bot_identity
+      - action: utter_ask_what_else
+
+  - rule: Introduce self and greet by name
+    condition:
+      - active_loop: null
+      - slot_was_set:
+          - user_name # <--- CORRECTED THIS FROM 'name' to 'user_name'
+    steps:
+      - intent: introduce_self
+      - action: utter_greet
+      - action: utter_ask_what_else

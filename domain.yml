@@ -1,0 +1,126 @@
+version: "3.1"
+
+# All the different user intentions your bot can understand
+intents:
+  - greet
+  - goodbye
+  - thank_you
+  - inquire_about_skills
+  - inquire_about_projects
+  - ask_specific_project
+  - inquire_about_experience
+  - inquire_about_contact
+  - introduce_self
+  - tell_more_about_me
+  - out_of_scope
+  - ask_specific_skill
+  - inquire_about_achievements # NEW
+  - ask_specific_achievement # NEW
+  - ask_experience_by_company # NEW
+  - bot_identity # NEW
+  - inquire_all_project_links # NEW
+
+# All the entities your bot can extract from user messages
+entities:
+  - project_name
+  - skill_name
+  - achievement_title # NEW
+  - company_name # Using 'company_name' for experiences
+  - name # <--- IMPORTANT: Ensure 'name' entity is also declared here!
+
+# Slots are memory where your bot stores information
+slots:
+  project_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: project_name
+  skill_name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: skill_name
+  achievement_title: # NEW SLOT
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: achievement_title
+  company_name: # NEW SLOT for experience company
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: company_name
+  user_name: # Corrected user_name slot
+    type: text
+    influence_conversation: true
+    mappings: # <--- This was the missing part!
+      - type: from_entity
+        entity: name # This tells Rasa to fill 'user_name' slot from 'name' entity
+
+# All the different responses your bot can say
+responses:
+  utter_greet:
+    - text: "Hello! Welcome to Sahil Umraniya's portfolio. How can I help you today?"
+    - text: "Hi there! I'm Sahil's digital assistant. What would you like to know?"
+    - text: "Hey {user_name}! Glad to have you here. What would you like to know about Sahil?" # NEW: Personalized greeting
+    - text: "Hello {user_name}! Welcome to Sahil's portfolio. How can I assist you?" # NEW: Personalized greeting
+  utter_goodbye:
+    - text: "Goodbye! Feel free to visit again."
+    - text: "See you later! Have a great day."
+  utter_thank_you:
+    - text: "You're welcome!"
+    - text: "No problem at all!"
+  utter_ask_what_else:
+    - text: "Is there anything else I can help you with?"
+    - text: "Do you have any other questions?"
+    - text: "Is there anything else you'd like to know about Sahil or his work?"
+    - text: "Do you have any other questions or topics you'd like to explore regarding Sahil's portfolio?"
+  utter_skills:
+    - text: "I primarily work with Python, JavaScript (Node.js, React), and have experience with databases like MongoDB and PostgreSQL. I also use frameworks like Django and Express.js."
+    - text: "My core skills include Python, JavaScript, web development (frontend & backend), database management, and cloud platforms like AWS."
+  utter_projects:
+    - text: "Sahil has worked on a variety of projects, including web applications, AI solutions, and mobile apps. You can find more details on the projects page. Which project are you interested in?"
+    - text: "His portfolio showcases projects like an e-commerce site, an AI maze solver, and a Flappy Bird game. Each project highlights his skills and expertise in software development."
+  utter_ask_specific_project:
+    - text: "I can tell you more about that project. Which one specifically?"
+  utter_experience:
+    - text: "Sahil has 2+ years of professional experience as a Software Developer, specializing in full-stack development. He has worked at companies like Smartters. Would you like to know more about his experience at a specific company?"
+    - text: "With over 2 years in the industry, Sahil has built a strong foundation in software development. He gained valuable experience at Smartters. Do you have a specific company in mind?"
+  utter_contact:
+    - text: "You can reach Sahil via email at [sahil.umraniya@example.com] or connect on LinkedIn [link to your LinkedIn]. All contact details are also on the 'Contact' page of this website."
+    - text: "For professional inquiries, you can find Sahil's contact information on the contact page or directly connect on LinkedIn."
+  utter_out_of_scope:
+    - text: "I'm sorry, I'm just a portfolio assistant and can't help with that. Could you please ask about Sahil's skills, projects, experience, or achievements?"
+    - text: "I'm not sure how to answer that. My purpose is to provide information about Sahil's work. Perhaps you could rephrase your question?"
+  utter_about_sahil:
+    - text: "Sahil Umraniya is a passionate Software Developer with 2+ years of experience, specializing in full-stack web development. He loves building robust and scalable applications."
+    - text: "I'm Sahil's AI assistant! Sahil is a talented developer with expertise in various modern technologies, focusing on creating efficient and user-friendly software solutions."
+  utter_achievements: # NEW RESPONSE
+    - text: "Sahil has several notable achievements and certifications. These include: Oracle Cloud Infrastructure 2024 Generative AI Certified Professional, SAP | Code Unnati Advanced Course Certification, and a completion certificate from Smartters Software internship. Which achievement are you interested in?"
+    - text: "Some of Sahil's key achievements are his Oracle and SAP certifications, and his successful internship at Smartters. Do you want to know more about a specific one?"
+  utter_ask_specific_achievement: # NEW RESPONSE
+    - text: "I can tell you more about that achievement. Which one specifically?"
+  utter_no_company_found: # NEW RESPONSE
+    - text: "I don't have detailed experience information for that company. Sahil has worked at Smartters. Is there another company you're thinking of?"
+  utter_bot_identity: # NEW
+    - text: "I am Sahil's AI assistant, here to provide information about his portfolio, skills, projects, and experience."
+    - text: "I'm a chatbot designed by Sahil to help visitors explore his work."
+
+
+# All the custom actions your bot can execute (defined in actions/actions.py)
+actions:
+  - action_tell_project_details
+  - action_tell_skill_details
+  - action_tell_achievement_details # NEW
+  - action_tell_experience_by_company # NEW
+  - action_list_all_project_links # NEW
+
+
+# Configuration for how long a conversation session lasts
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

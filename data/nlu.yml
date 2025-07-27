@@ -1,0 +1,329 @@
+version: "3.1"
+nlu:
+  - intent: greet
+    examples: |
+      - hi
+      - hello
+      - good morning
+      - good evening
+      - hey there
+      - sup
+      - howdy
+      - greetings
+      - nice to meet you
+      - good to see you
+      - hi bot
+      - hey assistant
+
+  - intent: goodbye
+    examples: |
+      - bye
+      - goodbye
+      - see you later
+      - gotta go
+      - cya
+      - farewell
+      - so long
+      - adios
+      - talk to you later
+      - no
+      - that's all
+      - no thanks
+      - I'm done
+
+  - intent: thank_you
+    examples: |
+      - thanks
+      - thank you
+      - appreciate it
+      - many thanks
+      - thx
+      - cheers
+      - thanks a lot
+      - much obliged
+      - thank you so much
+      - super thanks
+      - thank you for your help
+
+  - intent: inquire_about_skills
+    examples: |
+      - what are your skills?
+      - what technologies do you use?
+      - tell me about your tech stack
+      - what programming languages do you know?
+      - what's your expertise?
+      - what can you do?
+      - what skills does sahil have?
+      - which skills sahil have?
+      - what are sahil's proficiencies?
+      - tell me about sahil's skillset
+      - what kind of languages does he know?
+      - what tools does sahil use?
+      - sahil's technical abilities
+      - show me your skills
+      - skills
+      - what are sahil's programming skills?
+      - list all skills
+      - what frameworks do you know?
+
+  - intent: inquire_about_projects
+    examples: |
+      - tell me about your projects
+      - can I see your work?
+      - what kind of projects have you done?
+      - show me your portfolio
+      - projects
+      - what has sahil built?
+      - which projects has sahil done yet?
+      - previous work
+      - past projects
+      - tell me about Sahil's completed projects
+      - list Sahil's works
+      - what are Sahil's main projects?
+      - give me projects
+      - give me all project that sahil done yet
+      - how much project yet done?
+      - how much projects sahil done for now?
+      - prjects?
+      - projects?
+      - what about projects?
+      - show me all your projects
+      - tell me all projects
+      - give me links to projects
+      - project links
+      - where can I see all projects?
+
+  - intent: ask_specific_project
+    examples: |
+      - tell me about the [Swap & Share](project_name) project
+      - what about the [AI maze solver](project_name) project?
+      - explain the [Learnfinity](project_name) project
+      - project [Manufacturing Business Website](project_name)
+      - [Startup-Directory-Web-App](project_name)
+      - [Flappy Bird Game](project_name)
+      - [Expense manager Flutter App](project_name)
+      - [Movie Search](project_name)
+      - [Insightful-Blog](project_name)
+      - I want to know about the [Swap & Share](project_name)
+      - details on [AI maze solver](project_name)
+      - what's the [Learnfinity](project_name) about?
+      - tell me more about [Manufacturing Business Website](project_name)
+      - can you describe [Startup-Directory-Web-App](project_name)?
+      - I'm curious about the [Flappy Bird Game](project_name)
+      - explain the [Expense manager Flutter App](project_name)
+      - tell me about [Movie Search](project_name)
+      - what is [Insightful-Blog](project_name)?
+      - tell me about [Swap & Share](project_name)
+      - tell me about [AI maze solver](project_name)
+      - tell me about [Learnfinity](project_name)
+      - tell me about [Manufacturing Business Website](project_name)
+      - tell me about [Startup-Directory-Web-App](project_name)
+      - tell me about [Flappy Bird Game](project_name)
+      - tell me about [Expense manager Flutter App](project_name)
+      - tell me about [Movie Search](project_name)
+      - tell me about [Insightful-Blog](project_name)
+      - [Swap & Share](project_name)
+      - [AI maze solver](project_name)
+      - [Learnfinity](project_name)
+      - [Manufacturing Business Website](project_name)
+      - [Startup-Directory-Web-App](project_name)
+      - [Flappy Bird Game](project_name)
+      - [Expense manager Flutter App](project_name)
+      - [Movie Search](project_name)
+      - [Insightful-Blog](project_name)
+
+  - intent: ask_specific_skill
+    examples: |
+      - tell me about your [JavaScript](skill_name) experience
+      - what do you know about [Python](skill_name)?
+      - explain your work with [Node.js](skill_name)
+      - do you use [Django](skill_name)?
+      - how good is sahil at [PostgreSQL](skill_name)?
+      - what about [AWS](skill_name)?
+      - tell me about [TypeScript](skill_name)
+      - what is [Next JS](skill_name)?
+      - do you know [React JS](skill_name)?
+      - tell me about [Tailwind CSS](skill_name)
+      - what about [Bootstrap](skill_name)?
+      - explain [MongoDB](skill_name)
+      - what is [My SQL](skill_name)?
+      - tell me about [Docker](skill_name)
+      - what about [git](skill_name)?
+      - do you use [Feathers](skill_name)?
+      - what is [C](skill_name)?
+      - what about [C++](skill_name)?
+      - explain [Java](skill_name)
+      - tell me about [Express.js](skill_name)
+      - what about [Spring Boot](skill_name)?
+      - do you know [NumPy](skill_name)?
+      - explain [Pandas](skill_name)
+      - what about [Matplotlib](skill_name)?
+      - do you use [Scikit-learn](skill_name)?
+      - tell me about [Tableau](skill_name)
+      - what about [Pygame](skill_name)?
+      - do you know [HTML 5](skill_name)?
+      - explain [CSS 3](skill_name)
+      - what about [Dart](skill_name)?
+      - tell me about [Android](skill_name) development
+      - what is [Flutter](skill_name)?
+      - do you use [Kotlin](skill_name)?
+      - how about [AdvanceJava](skill_name)?
+      - tell me about [Oracle](skill_name) certification
+      - what is [SAP](skill_name) certificate?
+      - tell me about [Smartters internship](skill_name)
+      - tell me about [Oracle Cloud Infrastructure](skill_name)
+      - [JavaScript](skill_name)
+      - [Python](skill_name)
+      - [Node.js](skill_name)
+      - [React JS](skill_name)
+      - [MongoDB](skill_name)
+      - [PostgreSQL](skill_name)
+      - [Docker](skill_name)
+      - [Git](skill_name)
+      - [Java](skill_name)
+      - [C++](skill_name)
+      - [HTML 5](skill_name)
+      - [CSS 3](skill_name)
+
+  - intent: inquire_about_experience
+    examples: |
+      - how much experience do you have?
+      - what's your work experience?
+      - years of experience?
+      - how long have you been a developer?
+      - how many years has sahil been working?
+      - sahil's experience level
+      - tell me about sahil's work history
+      - what companies has sahil worked for?
+      - current job
+      - past jobs
+      - where has sahil worked?
+      - where did sahil work?
+      - where sahil work?
+      - tell me about your previous employment
+      - what's your job history?
+
+  - intent: ask_experience_by_company
+    examples: |
+      - tell me about your experience at [Smartters](company_name)
+      - what did you do at [Smartters](company_name)?
+      - can you describe your role at [Smartters](company_name) software?
+      - what projects did you work on at [Smartters](company_name)?
+      - what was your experience like at [Smartters](company_name)?
+      - experience at [Smartters](company_name)
+      - [Smartters](company_name)
+
+  - intent: inquire_about_contact
+    examples: |
+      - how can I contact you?
+      - what's your email?
+      - connect with you
+      - your LinkedIn
+      - contact information
+      - get in touch
+      - sahil's email
+      - reach out to sahil
+      - give me Sahil's contact info
+      - how to contact sahil?
+      - contact details
+
+  - intent: introduce_self
+    examples: |
+      - I'm [Sahil Umraniya](name)
+      - my name is [Sahil](name)
+      - you are Sahil
+      - your name is Sahil
+      - I am [John](name)
+      - my name is [Jane](name)
+      - introduce myself
+      - I am [Jatin](name)
+      - my name is [Jatin](name)
+      - I'm [Sarah](name)
+      - Hello I am [Jatin](name) here
+      - Hi I'm [Alice](name)
+      - This is [Bob](name)
+      - [My name is Peter](name)
+      - I am called [Chris](name)
+      - My name is [Alex](name), nice to meet you
+
+  - intent: tell_more_about_me
+    examples: |
+      - tell me more about yourself
+      - what do you do
+      - introduce yourself
+      - who is sahil?
+      - what's sahil's background?
+      - tell me about sahil
+      - give me more info about sahil
+      - what's your story?
+      - personal background
+      - who sahil umraniya?
+      - tell me about the owner of this portfolio
+      - what about sahil?
+      - what is sahil's background?
+      - tell me about the person behind this website
+
+  - intent: bot_identity
+    examples: |
+      - who are you?
+      - what is your name?
+      - tell me about yourself
+      - are you a bot?
+      - what can you do?
+      - what is your purpose?
+      - are you human?
+      - are you sahil?
+
+  - intent: inquire_about_achievements
+    examples: |
+      - what are your achievements?
+      - tell me about your certifications
+      - what awards have you won?
+      - show me your certificates
+      - what has sahil achieved?
+      - list Sahil's accomplishments
+      - any notable achievements?
+      - what certifications does Sahil have?
+      - tell me about Sahil's awards
+
+  - intent: ask_specific_achievement
+    examples: |
+      - tell me about the [Oracle Cloud Infrastructure 2024 Generative AI Certified Professional](achievement_title)
+      - what is the [SAP | Code Unnati Advanced Course Certification](achievement_title) about?
+      - explain the [Successfully Completion of Internship](achievement_title)
+      - what about the [Advanace Java](achievement_title) certificate?
+      - details on [Oracle Cloud Infrastructure Generative AI Certified Professional](achievement_title) certification
+      - tell me about the [Smartters Software](achievement_title) internship certificate
+      - [Oracle Cloud Infrastructure 2024 Generative AI Certified Professional](achievement_title)
+      - [SAP | Code Unnati Advanced Course Certification](achievement_title)
+      - [Successfully Completion of Internship](achievement_title)
+      - [Advanace Java](achievement_title)
+
+  - intent: inquire_all_project_links
+    examples: |
+      - give me only Live Demo link of all project with along title
+      - list all project links
+      - show me all project hosts
+      - where can I see all live projects?
+      - project demos
+      - all project links
+      - list live links
+      - all project hosts
+      - give me all the project websites
+      - show all project URLs
+      - give me the live project links
+
+  - intent: out_of_scope
+    examples: |
+      - what's the weather like?
+      - tell me a joke
+      - how are you?
+      - open google
+      - tell me a story
+      - general question
+      - I need help with something else
+      - what is the meaning of life?
+      - can you sing?
+      - random question
+      - I am looking for something else
+      - I want to know about current events
